@@ -36,7 +36,6 @@ public abstract class SoundBase : ISound
 
     public virtual void Play(string audio, bool loop, float volume)
     {
-        Debug.LogError("Play");
         _queue.Enqueue(SoundHandle.Play);
         _audioClip = null;
         _loop = loop;
@@ -54,21 +53,18 @@ public abstract class SoundBase : ISound
 
     public virtual void Stop()
     {
-        Debug.LogError("Stop");
         _queue.Enqueue(SoundHandle.Stop);
         NextHandle();
     }
 
     public virtual void Pause()
     {
-        Debug.LogError("Pause");
         _queue.Enqueue(SoundHandle.Pause);
         NextHandle();
     }
 
     public virtual void UnPause()
     {
-        Debug.LogError("UnPause");
         _queue.Enqueue(SoundHandle.UnPause);
         NextHandle();
     }
@@ -119,7 +115,6 @@ public abstract class SoundBase : ISound
         }
         _audioSource = null;
         _audioClip = null;
-        Debug.LogError("Release");
     }
 
     public virtual void Update()
