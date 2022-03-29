@@ -41,10 +41,10 @@ public abstract class SoundBase : ISound
         _audioClip = null;
         _loop = loop;
         _volume = volume;
-        if (null == _audioClip)
-        {
-            LoadAudioClip(audio);
-        }
+
+        _soundState = SoundHandle.Wait;
+        LoadAudioClip(audio);
+
         if (null == _audioSource)
         {
             LoadSoundPrefab();
